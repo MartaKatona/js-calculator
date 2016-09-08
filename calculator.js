@@ -9,8 +9,6 @@
 var calculatorModule = (function() {
   var module = {};
 
-  //Private
-  //??values
   var _total = 0;
   var _memory = 0;
 
@@ -21,14 +19,18 @@ var calculatorModule = (function() {
    * @return { Number }    current total
    */
   module.load = function(x){
-    _total = x;
+    if (typeof(x) === 'number') {
+      _total = x;
+    } else {
+      throw new Error('Wrong data type you dummy');
+    }
     return _total;
   };
 
   /**
    * Return the value of `total`
    * @return { Number }
-   */ //get
+   */
 
   module.getTotal = function(){
     return _total;
@@ -40,7 +42,11 @@ var calculatorModule = (function() {
    * @param { Number } x
    */
   module.add = function(x){
-    _total = _total + x;
+    if (typeof(x) === 'number') {
+      _total = _total + x;
+    } else {
+      throw new Error('Wrong data type you dummy');
+    }
     return _total;
   };
 
@@ -49,7 +55,11 @@ var calculatorModule = (function() {
    * @param  { Number } x
    */
   module.subtract = function(x){
-    _total = _total - x;
+    if (typeof(x) === 'number') {
+      _total = _total - x;
+    } else {
+      throw new Error('Wrong data type you dummy');
+    }
     return _total;
   };
 
@@ -58,7 +68,11 @@ var calculatorModule = (function() {
    * @param  { Number } x
    */
   module.multiply = function(x){
-    _total = _total * x;
+    if (typeof(x) === 'number') {
+      _total = _total * x;
+    } else {
+      throw new Error('Wrong data type you dummy');
+    }
     return _total;
   };
 
@@ -67,21 +81,25 @@ var calculatorModule = (function() {
    * @param  { Number } x
    */
   module.divide = function(x){
-    _total = _total / x;
+    if (typeof(x) === 'number') {
+      _total = _total / x;
+    } else {
+      throw new Error('Wrong data type you dummy');
+    }
     return _total;
   };
 
   /**
    * Return the value stored at `memory`
    * @return { Number }
-   */ //get
+   */
   module.recallMemory = function(){
     return _memory;
   };
 
   /**
    * Stores the value of `total` to `memory`
-   */ //set
+   */
   module.saveMemory = function() {
     _memory = _total;
     return _memory;
