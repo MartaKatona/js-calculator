@@ -18,12 +18,15 @@ var calculatorModule = (function() {
    * @param  { Number } x
    * @return { Number }    current total
    */
-  module.load = function(x){
-    if (typeof(x) === 'number') {
-      _total = x;
-    } else {
+  function validation (x){
+    if (typeof(x) !== 'number') {
       throw new Error('Wrong data type you dummy');
     }
+  }
+
+  module.load = function(x){
+    validation(x);
+    _total = x;
     return _total;
   };
 
@@ -42,11 +45,8 @@ var calculatorModule = (function() {
    * @param { Number } x
    */
   module.add = function(x){
-    if (typeof(x) === 'number') {
-      _total = _total + x;
-    } else {
-      throw new Error('Wrong data type you dummy');
-    }
+    validation(x);
+    _total = _total + x;
     return _total;
   };
 
@@ -55,11 +55,8 @@ var calculatorModule = (function() {
    * @param  { Number } x
    */
   module.subtract = function(x){
-    if (typeof(x) === 'number') {
-      _total = _total - x;
-    } else {
-      throw new Error('Wrong data type you dummy');
-    }
+    validation(x);
+    _total = _total - x;
     return _total;
   };
 
@@ -68,11 +65,8 @@ var calculatorModule = (function() {
    * @param  { Number } x
    */
   module.multiply = function(x){
-    if (typeof(x) === 'number') {
-      _total = _total * x;
-    } else {
-      throw new Error('Wrong data type you dummy');
-    }
+    validation(x);
+    _total = _total * x;
     return _total;
   };
 
@@ -81,11 +75,8 @@ var calculatorModule = (function() {
    * @param  { Number } x
    */
   module.divide = function(x){
-    if (typeof(x) === 'number') {
-      _total = _total / x;
-    } else {
-      throw new Error('Wrong data type you dummy');
-    }
+    validation(x);
+    _total = _total / x;
     return _total;
   };
 
